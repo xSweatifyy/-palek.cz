@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 20% 10%;
+    --foreground: 210 20% 90%;
+
+    --card: 220 18% 14%;
+    --card-foreground: 210 20% 90%;
+
+    --popover: 220 18% 14%;
+    --popover-foreground: 210 20% 90%;
+
+    --primary: 200 100% 50%;
+    --primary-foreground: 220 20% 5%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 200 100% 50%;
+    --accent-foreground: 220 20% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 22%;
+    --ring: 200 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 18% 12%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 200 100% 50%;
+    --sidebar-primary-foreground: 220 20% 5%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 15% 22%;
+    --sidebar-ring: 200 100% 50%;
+
+    /* Custom tokens */
+    --glow: 200 100% 50%;
+    --surface: 220 18% 12%;
+    --surface-hover: 220 18% 16%;
+    --hero-gradient: linear-gradient(135deg, hsl(220 20% 8%) 0%, hsl(220 18% 14%) 50%, hsl(200 30% 12%) 100%);
+    --card-gradient: linear-gradient(145deg, hsl(220 18% 14%) 0%, hsl(220 18% 10%) 100%);
+    --accent-gradient: linear-gradient(135deg, hsl(200 100% 50%) 0%, hsl(190 100% 40%) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--glow) / 0.5), 0 0 40px hsl(var(--glow) / 0.2);
+  }
+
+  .glow-border {
+    box-shadow: 0 0 15px hsl(var(--glow) / 0.15), inset 0 0 15px hsl(var(--glow) / 0.05);
+  }
+
+  .glow-box {
+    box-shadow: 0 0 30px hsl(var(--glow) / 0.1), 0 4px 20px hsl(0 0% 0% / 0.3);
+  }
+
+  .section-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .card-surface {
+    background: var(--card-gradient);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .accent-line {
+    background: var(--accent-gradient);
+  }
+
+  .nav-glass {
+    background: hsl(220 20% 10% / 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .hero-bg {
+    background: var(--hero-gradient);
+  }
+
+  .image-card {
+    @apply card-surface rounded-lg overflow-hidden transition-all duration-300;
+  }
+
+  .image-card:hover {
+    box-shadow: 0 0 25px hsl(var(--glow) / 0.2), 0 8px 30px hsl(0 0% 0% / 0.4);
+    transform: translateY(-4px);
+    border-color: hsl(var(--primary) / 0.4);
+  }
+
+  .stat-card {
+    @apply card-surface rounded-xl p-6 glow-border transition-all duration-300;
+  }
+
+  .stat-card:hover {
+    @apply glow-box;
+    border-color: hsl(var(--primary) / 0.4);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
